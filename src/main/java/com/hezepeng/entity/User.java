@@ -1,7 +1,13 @@
 package com.hezepeng.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
+/**
+ * @author hezepeng
+ */
 public class User {
     private Integer id;
 
@@ -11,6 +17,7 @@ public class User {
 
     private String nickname;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     public Integer getId() {
@@ -45,6 +52,7 @@ public class User {
         this.nickname = nickname == null ? null : nickname.trim();
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getCreateTime() {
         return createTime;
     }
